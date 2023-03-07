@@ -1,0 +1,26 @@
+header {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   width: 100%;
+
+   .wrapper {
+      display: flex;
+      align-items: center;
+      padding-left: 20px;
+      padding-right: 20px;
+      margin-top: 37px;
+
+      .wrapper__logo {
+         cursor: pointer;
+         margin-left: 20px;
+         font-family: Montserrat;
+         font-size: 25px;
+         font-weight: 700;
+      }
+
+      .custom-select-container {
+         margin-left: 22.29px;
+      }
+   }
+}

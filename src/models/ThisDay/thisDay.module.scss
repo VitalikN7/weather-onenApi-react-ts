@@ -1,0 +1,49 @@
+.block__one {
+   min-width: 30%;
+   height: 300px;
+   padding: 20px;
+   align-items: flex-end;
+   margin-right: 40px;
+   background: #FFFFFF;
+   box-shadow: 2px 5px 25px -3px rgba(180, 180, 180, 0.25);
+   border-radius: 20px;
+
+   .block__one__inner {
+      display: flex;
+      justify-content: space-between;
+
+      h1 {
+         margin: 0;
+         font-family: Montserrat;
+         font-size: 96px;
+         font-weight: 500;
+         color: rgba(71, 147, 255, 1);
+      }
+
+      h3 {
+         font-family: Montserrat;
+         font-size: 40px;
+         font-weight: 400;
+         line-height: 48.76px;
+         color: rgba(0, 0, 0, 1);
+         margin-bottom: 40px;
+      }
+
+      .block__one__inner__svg {
+         padding-top: 6px;
+      }
+   }
+
+   p {
+      font-family: Montserrat;
+      font-size: 25px;
+      font-weight: 400;
+      line-height: 30.48px;
+      color: #939CB0;
+      margin-bottom: 10px;
+
+      &:last-child {
+         margin-bottom: 0;
+      }
+   }
+}
