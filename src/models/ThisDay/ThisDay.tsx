@@ -1,6 +1,8 @@
 import React from 'react'
 // svgComponents
 import SelectorSvgMain from '../../components/SelectorSvg/SelectorSvgMain';
+// components
+import { Spinner } from "../../components/Spinner/Spinner";
 // styles
 import styles from './thisDay.module.scss'
 
@@ -28,7 +30,7 @@ export const ThisDay = ({ temperature, data }: ThisDayProps) => {
          </div>)
          :
          (
-            <h1>hi</h1>
+            <Spinner />
          ))
    )
 }

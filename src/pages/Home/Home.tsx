@@ -17,7 +17,6 @@ export const Home = () => {
    const dispath = useAppDispatch()
 
    const isTemperature: InitTemperature = useAppSelector(selectAllWeather)
-   // console.log('isTemperature: ', isTemperature);
 
    const [time, setTime] = useState('')
 
@@ -35,9 +34,14 @@ export const Home = () => {
             />
             <ThisDayInfo
                pressure={isTemperature?.temperature?.hourly?.surface_pressure[isTemperature.indexApi]}
+               temperature={isTemperature?.temperature?.hourly?.temperature_2m[isTemperature.indexApi]}
+               precipitation={isTemperature?.temperature?.hourly?.precipitation_probability[isTemperature.indexApi]}
+               wind={isTemperature.temperature?.hourly.windspeed_10m[isTemperature.indexApi]}
             />
          </main >
-         <ThisWeeklyInfo />
+         <ThisWeeklyInfo
+            temperature={isTemperature?.temperature?.hourly?.temperature_2m[isTemperature.indexApi]}
+         />
       </Container>
    )
 }

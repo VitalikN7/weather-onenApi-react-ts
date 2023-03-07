@@ -19,6 +19,7 @@ export type InitTemperature = {
          snowfall: string,
          surface_pressure: string,
          cloudcover: string,
+         windspeed_10m: string,
       }
       hourly: {
          time: Array<string>,
@@ -29,6 +30,7 @@ export type InitTemperature = {
          snowfall: Array<number>,
          surface_pressure: Array<number>,
          cloudcover: Array<number>,
+         windspeed_10m: Array<number>,
       },
    } | null,
 }
@@ -50,6 +52,7 @@ export type ApiTemperature = {
       snowfall: string,
       surface_pressure: string,
       cloudcover: string,
+      windspeed_10m: string,
    }
    hourly: {
       time: Array<string>,
@@ -60,5 +63,6 @@ export type ApiTemperature = {
       snowfall: Array<number>,
       surface_pressure: Array<number>,
       cloudcover: Array<number>,
+      windspeed_10m: Array<number>,
    }
 } | null

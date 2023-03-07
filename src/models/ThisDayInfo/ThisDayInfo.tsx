@@ -7,27 +7,49 @@ import styles from './thisDayInfo.module.scss'
 import cloud from '../../assets/img/cloud.png'
 
 interface ThisDayInfoProps {
-   pressure: number | undefined
+   pressure: number | undefined,
+   temperature: number | undefined,
+   precipitation: number | undefined,
+   wind: number | undefined,
 }
 
-export const ThisDayInfo = ({ pressure }: ThisDayInfoProps) => {
+// interface ThisDayInfoOptions {
+//    svgName: string,
+//    text: string,
+//    value: null | number | string | undefined,
+// }
 
-   const [data, setData] = useState([
-      { svgName: 'temperature', text: 'Температура', },
-      { svgName: 'pressure', text: 'Давление', value: pressure, },
-      { svgName: 'precipitation', text: 'Осадки', },
-      { svgName: 'wind', text: 'Ветер', },
-   ])
+export const ThisDayInfo = ({ pressure, temperature, precipitation, wind }: ThisDayInfoProps) => {
+
+   // const [data, setData] = useState([
+   //    { svgName: 'temperature', text: 'Температура', value: null, },
+   //    { svgName: 'pressure', text: 'Давление', value: null, },
+   //    { svgName: 'precipitation', text: 'Осадки', value: null, },
+   //    { svgName: 'wind', text: 'Ветер', value: null, },
+   // ])
 
    // useEffect(() => {
-   //    setData(...data, [data[1].value = pressure])
-   // }, [pressure])
-
-   // console.log('data: ', data);
+   //    const newData = [...data]
+   //    newData.forEach((el: ThisDayInfoOptions, i) => {
+   //       if (i === 0) {
+   //          el.value = temperature
+   //       }
+   //       if (i === 1) {
+   //          el.value = pressure
+   //       }
+   //       if (i === 2) {
+   //          el.value = precipitation
+   //       }
+   //       if (i === 3) {
+   //          el.value = wind
+   //       }
+   //    })
+   //    setData(newData)
+   // }, [pressure, temperature, precipitation, wind])
 
    return (
       <div className={styles.block__two}>
-         {/* {data.map(({ svgName, text, value }) => (
+         {/* {data.map(({ svgName, text, value }, i) => (
             <div key={svgName} className={styles.block__two__inner}>
                < SelectorSvgOther svgName={svgName} />
                <p>{text}</p>
@@ -37,7 +59,7 @@ export const ThisDayInfo = ({ pressure }: ThisDayInfoProps) => {
          <div className={styles.block__two__inner}>
             < SelectorSvgOther svgName={'temperature'} />
             <p>Температура</p>
-            <p>{`${null} 20° - ощущается как 17°`}</p>
+            <p>{`${temperature} 20° - ощущается как 17°`}</p>
          </div>
          <div className={styles.block__two__inner}>
             < SelectorSvgOther svgName={'pressure'} />
@@ -47,12 +69,12 @@ export const ThisDayInfo = ({ pressure }: ThisDayInfoProps) => {
          <div className={styles.block__two__inner}>
             < SelectorSvgOther svgName={'precipitation'} />
             <p>Осадки</p>
-            <p>{`${null} Без осадков`}</p>
+            <p>{`${precipitation} Без осадков`}</p>
          </div>
          <div className={styles.block__two__inner}>
             < SelectorSvgOther svgName={'wind'} />
             <p>Ветер</p>
-            <p>{`${null} 3 м/с юго-запад - легкий ветер`}</p>
+            <p>{`${wind} 3 м/с юго-запад - легкий ветер`}</p>
          </div>
          <img src={cloud} alt="cloud" />
       </div>
