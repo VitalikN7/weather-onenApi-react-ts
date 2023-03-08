@@ -13,6 +13,7 @@ export type InitTemperature = {
       hourly_units: {
          time: string,
          temperature_2m: string,
+         apparent_temperature: string,
          precipitation_probability: string,
          rain: string,
          showers: string,
@@ -20,10 +21,12 @@ export type InitTemperature = {
          surface_pressure: string,
          cloudcover: string,
          windspeed_10m: string,
+         winddirection_10m: string,
       }
       hourly: {
          time: Array<string>,
          temperature_2m: Array<number>,
+         apparent_temperature: Array<number>,
          precipitation_probability: Array<number>,
          rain: Array<number>,
          showers: Array<number>,
@@ -31,6 +34,7 @@ export type InitTemperature = {
          surface_pressure: Array<number>,
          cloudcover: Array<number>,
          windspeed_10m: Array<number>,
+         winddirection_10m: Array<number>,
       },
    } | null,
 }
@@ -46,6 +50,7 @@ export type ApiTemperature = {
    hourly_units: {
       time: string,
       temperature_2m: string,
+      apparent_temperature: string,
       precipitation_probability: string,
       rain: string,
       showers: string,
@@ -53,10 +58,12 @@ export type ApiTemperature = {
       surface_pressure: string,
       cloudcover: string,
       windspeed_10m: string,
+      winddirection_10m: string,
    }
    hourly: {
       time: Array<string>,
       temperature_2m: Array<number>,
+      apparent_temperature: Array<number>,
       precipitation_probability: Array<number>,
       rain: Array<number>,
       showers: Array<number>,
@@ -64,5 +71,6 @@ export type ApiTemperature = {
       surface_pressure: Array<number>,
       cloudcover: Array<number>,
       windspeed_10m: Array<number>,
+      winddirection_10m: Array<number>,
    }
 } | null

@@ -37,6 +37,8 @@ export const Home = () => {
                temperature={isTemperature?.temperature?.hourly?.temperature_2m[isTemperature.indexApi]}
                precipitation={isTemperature?.temperature?.hourly?.precipitation_probability[isTemperature.indexApi]}
                wind={isTemperature.temperature?.hourly.windspeed_10m[isTemperature.indexApi]}
+               apparent_temperature={isTemperature.temperature?.hourly.apparent_temperature[isTemperature.indexApi]}
+               winddirection={isTemperature.temperature?.hourly.winddirection_10m[isTemperature.indexApi]}
             />
          </main >
          <ThisWeeklyInfo
