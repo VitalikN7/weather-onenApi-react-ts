@@ -8,7 +8,7 @@ import { getDataIndex, getGurrentData } from "../../helper/currentTime";
 import { ApiTemperature, InitTemperature } from "../../types";
 
 export const fetchTemperatureAnapa = createAsyncThunk('/fetchTemperature', async () => {
-   const { data } = await axios.get('forecast?latitude=44.89&longitude=37.32&hourly=temperature_2m,precipitation_probability,rain,showers,snowfall,surface_pressure,cloudcover,windspeed_10m')
+   const { data } = await axios.get('forecast?latitude=44.89&longitude=37.32&hourly=temperature_2m,apparent_temperature,precipitation_probability,rain,showers,snowfall,surface_pressure,cloudcover,windspeed_10m,winddirection_10m&windspeed_unit=ms')
    return data as ApiTemperature
 })
 

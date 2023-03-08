@@ -11,60 +11,54 @@ interface ThisDayInfoProps {
    temperature: number | undefined,
    precipitation: number | undefined,
    wind: number | undefined,
+   apparent_temperature: number | undefined,
+   winddirection: number | undefined,
 }
 
-// interface ThisDayInfoOptions {
-//    svgName: string,
-//    text: string,
-//    value: null | number | string | undefined,
-// }
+export const ThisDayInfo = ({ pressure, temperature, precipitation, wind, apparent_temperature, winddirection }: ThisDayInfoProps) => {
 
-export const ThisDayInfo = ({ pressure, temperature, precipitation, wind }: ThisDayInfoProps) => {
+   const [directionwind, setDirectionWind] = useState('')
 
-   // const [data, setData] = useState([
-   //    { svgName: 'temperature', text: 'Температура', value: null, },
-   //    { svgName: 'pressure', text: 'Давление', value: null, },
-   //    { svgName: 'precipitation', text: 'Осадки', value: null, },
-   //    { svgName: 'wind', text: 'Ветер', value: null, },
-   // ])
-
-   // useEffect(() => {
-   //    const newData = [...data]
-   //    newData.forEach((el: ThisDayInfoOptions, i) => {
-   //       if (i === 0) {
-   //          el.value = temperature
-   //       }
-   //       if (i === 1) {
-   //          el.value = pressure
-   //       }
-   //       if (i === 2) {
-   //          el.value = precipitation
-   //       }
-   //       if (i === 3) {
-   //          el.value = wind
-   //       }
-   //    })
-   //    setData(newData)
-   // }, [pressure, temperature, precipitation, wind])
+   useEffect(() => {
+      if (winddirection) {
+         if (winddirection >= 337.5 && winddirection <= 360 || winddirection <= 22.5) {
+            setDirectionWind('север')
+         }
+         if (winddirection <= 67.5 && winddirection >= 22.5) {
+            setDirectionWind('северо-восток')
+         }
+         if (winddirection <= 67.5 && winddirection >= 22.5) {
+            setDirectionWind('восток')
+         }
+         if (winddirection <= 67.5 && winddirection >= 22.5) {
+            setDirectionWind('юго-восток')
+         }
+         if (winddirection <= 67.5 && winddirection >= 22.5) {
+            setDirectionWind('юг')
+         }
+         if (winddirection <= 67.5 && winddirection >= 22.5) {
+            setDirectionWind('юг-запад')
+         }
+         if (winddirection <= 67.5 && winddirection >= 22.5) {
+            setDirectionWind('запад')
+         }
+         if (winddirection <= 67.5 && winddirection >= 22.5) {
+            setDirectionWind('северо-запад')
+         }
+      }
+   }, [winddirection])
 
    return (
       <div className={styles.block__two}>
-         {/* {data.map(({ svgName, text, value }, i) => (
-            <div key={svgName} className={styles.block__two__inner}>
-               < SelectorSvgOther svgName={svgName} />
-               <p>{text}</p>
-               <p>{`${value} мм ртутного столба`}</p>
-            </div>
-         ))} */}
          <div className={styles.block__two__inner}>
             < SelectorSvgOther svgName={'temperature'} />
             <p>Температура</p>
-            <p>{`${temperature} 20° - ощущается как 17°`}</p>
+            {temperature && apparent_temperature && <p>{`${Math.floor(temperature)} °C - ощущается как ${Math.floor(apparent_temperature)} °C`}</p>}
          </div>
          <div className={styles.block__two__inner}>
             < SelectorSvgOther svgName={'pressure'} />
             <p>Давление</p>
-            <p>{`${pressure} мм ртутного столба`}</p>
+            {pressure && <p>{`${Math.floor(pressure) * 0.75} мм ртутного столба`}</p>}
          </div>
          <div className={styles.block__two__inner}>
             < SelectorSvgOther svgName={'precipitation'} />
@@ -74,7 +68,7 @@ export const ThisDayInfo = ({ pressure, temperature, precipitation, wind }: This
          <div className={styles.block__two__inner}>
             < SelectorSvgOther svgName={'wind'} />
             <p>Ветер</p>
-            <p>{`${wind} 3 м/с юго-запад - легкий ветер`}</p>
+            {wind && <p>{`Скорость ${Math.floor(wind)} м/с ${directionwind}`}</p>}
          </div>
          <img src={cloud} alt="cloud" />
       </div>

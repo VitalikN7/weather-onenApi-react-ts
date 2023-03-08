@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom/client';
 // redux
 import { store } from './redux/store'
 import { Provider } from 'react-redux'
+// react router dom
+import { BrowserRouter } from "react-router-dom";
 // global styles
 import './index.scss';
 // components
@@ -14,7 +16,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <Provider store={store}>
     <React.StrictMode>
-      <App />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </React.StrictMode>
   </Provider>
 );
