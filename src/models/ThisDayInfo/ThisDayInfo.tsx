@@ -52,13 +52,13 @@ export const ThisDayInfo = ({ pressure, temperature, apparent_temperature, preci
          if (Math.floor(wind) <= 5) {
             setSpeedWind('cлабый')
          }
-         if (Math.floor(wind) <= 14 && Math.floor(wind) > 6) {
+         if (Math.floor(wind) <= 14 && Math.floor(wind) >= 6) {
             setSpeedWind('умеренный')
          }
-         if (Math.floor(wind) <= 24 && Math.floor(wind) > 15) {
+         if (Math.floor(wind) <= 24 && Math.floor(wind) >= 15) {
             setSpeedWind('сильный')
          }
-         if (Math.floor(wind) <= 32 && Math.floor(wind) > 25) {
+         if (Math.floor(wind) <= 32 && Math.floor(wind) >= 25) {
             setSpeedWind('очень сильный')
          }
          if (Math.floor(wind) >= 33) {
@@ -69,14 +69,14 @@ export const ThisDayInfo = ({ pressure, temperature, apparent_temperature, preci
          if (precipitation <= 5) {
             setPrecipitationInterest('без осадков')
          }
-         if (precipitation <= 30 && precipitation > 6) {
+         if (precipitation <= 30 && precipitation >= 6) {
             setPrecipitationInterest('мало вероятно')
          }
-         if (precipitation <= 60 && precipitation > 31) {
+         if (precipitation <= 60 && precipitation >= 31) {
             setPrecipitationInterest('возможно, можно взять зотник')
          }
-         if (precipitation <= 80 && precipitation > 61) {
-            setPrecipitationInterest('осадки почти навердика зонтик точно нужен')
+         if (precipitation <= 80 && precipitation >= 61) {
+            setPrecipitationInterest('осадки почти наверника, зонтик точно нужен')
          }
          if (precipitation >= 81) {
             setPrecipitationInterest('одназначно осадки')
@@ -104,7 +104,7 @@ export const ThisDayInfo = ({ pressure, temperature, apparent_temperature, preci
          <div className={styles.block__two__inner}>
             < SelectorSvgOther svgName={'wind'} />
             <p>Ветер</p>
-            {wind && <p>{`Скорость ${Math.floor(wind)} м/с ${directionWind} - ${speedWind}`}</p>}
+            {wind && <p>{`скорость ${Math.floor(wind)} м/с ${directionWind} - ${speedWind}`}</p>}
          </div>
          <img src={cloud} alt="cloud" />
       </div>
